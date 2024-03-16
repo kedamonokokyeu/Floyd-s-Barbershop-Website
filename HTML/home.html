@@ -11,7 +11,7 @@
             align-items: center;
             height: auto;
             margin: 0;
-            line-height: 1.6; /* Increase spacing between lines */
+            line-height: 1.6; 
         }
         h1 {
             font-weight: normal;
@@ -22,27 +22,27 @@
             text-align: center;
             margin-top: 20px;
             font-size: 30px;
-            opacity: 0; /* Initially set opacity to 0 */
-            transition: opacity 1s ease; /* Add transition effect */
+            opacity: 0;
+            transition: opacity 1s ease;
         }
         .container {
             display: flex;
             align-items: center;
             margin-top: 20px;
-            position: relative; /* Ensure prices and times are positioned relative to this container */
+            position: relative; 
         }
         img {
             border-radius: 1%;
             border: 1px solid #ccc;
             margin-right: 20px;
-            opacity: 1; /* Set opacity to 1 to always show the image */
-            transition: opacity 1s ease; /* Add transition effect */
+            opacity: 1; 
+            transition: opacity 1s ease; 
         }
         p {
             max-width: 400px;
-            margin-bottom: 15px; /* Add margin-bottom to create space between paragraphs */
-            opacity: 0; /* Initially set opacity to 0 */
-            transition: opacity 1s ease; /* Add transition effect */
+            margin-bottom: 15px; 
+            opacity: 0; 
+            transition: opacity 1s ease; 
         }
         .customer-reviews {
             margin-top: 20px; 
@@ -60,22 +60,22 @@
             transition: opacity 1s ease; 
         }
         .customer-reviews img {
-            max-width: 600px; /* Larger size for review images */
-            margin: 20px; /* Add margin to space out the review images */
-            display: block; /* Display images in a block layout */
+            max-width: 600px; 
+            margin: 20px;
+            display: block; 
             border-radius: 5%;
-            opacity: 0; /* Initially set opacity to 0 */
-            transition: opacity 1s ease; /* Add transition effect */
+            opacity: 0; 
+            transition: opacity 1s ease; 
         }
         .haircut-screenshots {
-            margin-top: 40px; /* Add margin-top to create space between sections */
+            margin-top: 40px; 
             text-align: center;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap; /* Allow images to wrap to the next line */
-            align-items: center; /* Align items in center horizontally */
-            position: relative; /* Set position relative for absolute positioning */
-            margin-bottom: 50px; /* Add margin-bottom to create space between the section and the centered header */
+            flex-wrap: wrap; 
+            align-items: center; 
+            position: relative; 
+            margin-bottom: 50px; 
         }
         .haircut-screenshots h2 {
             font-weight: bold;
@@ -114,20 +114,20 @@
             text-align: left;
             margin-top: 20px;
             font-size: 25px;
-            opacity: 1; /* Set opacity to 1 to always show the prices and times section */
-            transition: opacity 1s ease; /* Add transition effect */  
+            opacity: 1; /* set opacity to 1 to always show the prices and times section */
+            transition: opacity 1s ease; /* add transition effect */  
             position: relative;
         }
 
         .content-wrapper {
             display: flex;
-            align-items: center; /* Center vertically */
+            align-items: center; 
             text-align: right;
             margin-top: 20px;
             font-size: 25px;
             margin: 35px;
-            opacity: 1; /* Set opacity to 1 to always show the prices and times section */
-            transition: opacity 1s ease; /* Add transition effect */  
+            opacity: 1; 
+            transition: opacity 1s ease; 
             position: relative;
         }
         .text-content {
@@ -138,14 +138,14 @@
             text-align: left;
             margin-top: 20px;
             font-size: 20px;
-            opacity: 1; /* Set opacity to 1 to always show the prices and times section */
-            transition: opacity 1s ease; /* Add transition effect */  
+            opacity: 1; 
+            transition: opacity 1s ease;  
             position: relative;
         }     
         .image-content {
-            margin-left: 100px; /* Align the image to the right */
-            display: flex; /* Enable flexbox for the image container */
-            align-items: center; /* Center the image vertically */
+            margin-left: 100px; 
+            display: flex; 
+            align-items: center; 
             margin: 40px;
         }
     </style>
@@ -280,12 +280,12 @@
         }
 
         function goToHome() {
-            // Add code to navigate to the home page
+            // current page
             window.location.href = "home.html";
         }
 
         function goToBarbers() {
-            // Add code to navigate to the pricing page
+            // new page with barber info
             window.location.href = "barbers.html";
         }
 
@@ -301,7 +301,7 @@
             fadeInAll('.pricesandtimes')
         });
 
-        // Function to fade in a single element
+        // for one element
         function fadeIn(selector) {
             var element = document.querySelector(selector);
             var position = element.getBoundingClientRect().top;
@@ -311,7 +311,7 @@
             }
         }
 
-        // Function to fade in multiple elements
+        // for multiple elements
         function fadeInAll(selector) {
             var elements = document.querySelectorAll(selector);
             elements.forEach(function(element) {
@@ -325,5 +325,6 @@
     </script>
 </body>
 </html>
+
 
 
