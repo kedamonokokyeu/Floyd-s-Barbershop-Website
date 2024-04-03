@@ -18,6 +18,10 @@
             height: auto;
             margin: 0;
             line-height: 1.6; 
+            background-image: url(images/backdrop.png);
+            background-size: auto 100%; /* Cover the entire viewport */
+            background-position: center;
+            background-repeat: no-repeat;
         }
         h1 {
             font-weight: normal;
@@ -39,7 +43,7 @@
         }
         img {
             border-radius: 1%;
-            border: 1px solid #ccc;
+            border: 2px solid #b38b6d;
             margin-right: 20px;
             opacity: 1; 
             transition: opacity 1s ease; 
@@ -62,7 +66,7 @@
             font-weight: bold;
             margin-bottom: 20px; 
             border-radius: 5%;
-            opacity: 0; 
+            opacity: 0; /* Initially set opacity to 0 */
             transition: opacity 1s ease; 
         }
         .customer-reviews img {
@@ -72,6 +76,7 @@
             border-radius: 5%;
             opacity: 0; 
             transition: opacity 1s ease; 
+            border: 1.5px solid #918151;
         }
         .haircut-screenshots {
             margin-top: 40px; 
@@ -88,12 +93,12 @@
             position: absolute; 
             bottom: 0; 
             opacity: 0; 
-            transition: opacity 1s ease;
+            transition: opacity 1s ease; 
         }
         .haircut-screenshots img {
             max-width: 250px; 
             margin: 20px; 
-            opacity: 0;
+            opacity: 0; 
             transition: opacity 1s ease; 
         }
         .button-container {
@@ -124,7 +129,6 @@
             transition: opacity 1s ease; /* add transition effect */  
             position: relative;
         }
-
         .content-wrapper {
             display: flex;
             align-items: center; 
@@ -138,12 +142,13 @@
         }
         .text-content {
             flex: 1; /* Take up remaining space */
-            font-size: 20px;
+            font-size: 22px;
+            text-align: center;
         }
         .times {
             text-align: left;
             margin-top: 20px;
-            font-size: 20px;
+            font-size: 22px;
             opacity: 1; 
             transition: opacity 1s ease;  
             position: relative;
@@ -154,18 +159,21 @@
             align-items: center; 
             margin: 40px;
         }
+        .header {
+            color:#4f3a3c;
+        }
     </style>
 </head>
 <body>
-    <h1>Floyd's Barbershop</h1>
+    <h1>Floyd's Barbershop</h1> 
     <div class="top-buttons">
-        <button onclick="goToHome()">Home</button>
-        <button onclick="goToBarbers()">Barbers</button>
+        <button onclick="goToHome()" style="font-family: 'Garamond', serif; font-size:15px; background-color:#F1F9F6; color:#536878; border-radius:5px; border: 1.6px solid #4f3a3c;">Home</button>
+        <button onclick="goToBarbers()" style="font-family: 'Garamond', serif; font-size:15px; background-color:#F1F9F6; color:#536878; border-radius:5px; border: 1.6px solid #4f3a3c;">Barbers</button>
     </div>
     <div class="container">
         <img src="images/o.jpg" alt="Floyd's Barbershop">
         <div>
-            <h2 class="about-us">About Us</h2>
+            <h2 class="about-us" style="color:#003153">About Us</h2>
             <p>Founded over 40 years ago, Floyd's has been serving its clients conveniently with its long amount of expertise. </p>
             <p>Located on Bascom Avenue of Campbell, Floyd's Barbershop's mission is to provide more than just a haircut; we aim to cultivate an experience that embodies tradition, craftsmanship, and community. With a commitment to excellence in grooming services, our skilled barbers are dedicated to delivering personalized styles that reflect the unique personality and preferences of each client.</p>
             <p>Beyond the chair, we foster a welcoming atmosphere in which friendships are formed and memories are made. Whether you're seeking a regular haircut or a modern makeover, Floyd's Barbershop is here to exceed your expectations and leave you looking and feeling your best.</p>
@@ -174,7 +182,7 @@
     </div>
     <div class="customer-reviews">
         <div>
-            <h2>This is what customers have to say about us...</h2>
+            <h2 class="header" style="color:#003153" >This is what customers have to say about us... </h2>
             <img src="images/review.png" alt="Customer Review 1">
             <img src="images/review1.png" alt="Customer Review 2">
         </div>
@@ -185,7 +193,7 @@
     </div>
     <div class="haircut-screenshots">
     <div class="haircut-screenshots">
-        <h2 style="margin-bottom: 300px;">Our Hairstyles</h2>
+        <h2 style="margin-bottom: 300px; color:#003153;">Our Hairstyles</h2>
         <img src="images/tapers.png" alt="Tapers">
         <img src="images/tapers1.jpg" alt="Tapers">
         <img src="images/tapers2.png" alt="Tapers">
@@ -197,13 +205,13 @@
         <img src="images/regular2.png" alt="Regulars" style="display: none;">
     </div>
     <div class="button-container">
-        <button onclick="showTapers()" style="font-size:25px; background-color:#F1F9F6; color:#0020C2; border-radius:25px;">Tapers</button>
-        <button onclick="showFades()" style="font-size:25px; background-color:#F1F9F6; color:#0020C2; border-radius:25px;">Fades</button>
-        <button onclick="showRegulars()" style="font-size:25px; background-color:#F1F9F6; color:#0020C2; border-radius:25px;">Regulars</button>
+        <button onclick="showTapers()" style="font-size:25px; background-color:#faf0e6; color:#4f3a3c;; border-radius:20px;">Tapers</button>
+        <button onclick="showFades()" style="font-size:25px; background-color:#faf0e6; color:#4f3a3c;; border-radius:20px;">Fades</button>
+        <button onclick="showRegulars()" style="font-size:25px; background-color:#faf0e6; color:#4f3a3c;; border-radius:20px;">Regulars</button>
     </div>
     <div class="container">
         <div class="pricesandtimesheader">
-            <h1>Prices and Times</h1>
+            <h1 style="color:#003153" >Prices and Times</h1>
         </div>
         <br>
         <div class="content-wrapper">
@@ -332,6 +340,8 @@
     </script>
 </body>
 </html>
+
+
 
 
 
