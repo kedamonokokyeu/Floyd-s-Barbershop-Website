@@ -1,0 +1,356 @@
+/* Booking System Styles */
+
+/* Calendar Styles */
+.calendar-day {
+    @apply p-3 text-center border border-gray-200 dark:border-gray-600 rounded-lg transition-all duration-200 font-medium text-sm min-h-[40px] flex items-center justify-center relative;
+    user-select: none;
+    position: relative;
+}
+
+.calendar-day:hover {
+    z-index: 10;
+}
+
+.calendar-day.selected {
+    @apply bg-black text-white border-black shadow-lg transform scale-105;
+    z-index: 20;
+    animation: pulse 0.3s ease-in-out;
+}
+
+.calendar-day.disabled {
+    @apply text-gray-400 cursor-not-allowed bg-gray-50 dark:bg-gray-800;
+    opacity: 0.3;
+}
+
+.calendar-day.today {
+    @apply border-black dark:border-white font-bold bg-gray-100 dark:bg-gray-700;
+}
+
+.calendar-day.other-month {
+    @apply text-gray-300 dark:text-gray-600;
+    opacity: 0.3;
+}
+
+.calendar-day.available {
+    @apply bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 cursor-pointer;
+}
+
+.calendar-day.available:hover {
+    @apply bg-gray-100 dark:bg-gray-600 transform scale-105 hover:border-black dark:hover:border-white hover:shadow-md;
+}
+
+.calendar-day.unavailable {
+    @apply bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-400 cursor-not-allowed;
+    opacity: 0.5;
+}
+
+/* Ensure calendar days are clickable */
+.calendar-day.available:active {
+    @apply transform scale-95;
+}
+
+/* Calendar grid improvements */
+#calendarGrid {
+    @apply gap-1 p-2;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+/* Time Slot Styles */
+.time-slot {
+    @apply p-3 text-center border border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer transition-all duration-200 font-medium text-sm relative;
+    user-select: none;
+    position: relative;
+}
+
+.time-slot:hover {
+    @apply bg-gray-50 dark:bg-gray-700 border-gray-400 dark:border-gray-500 transform scale-105;
+    z-index: 10;
+}
+
+.time-slot.selected {
+    @apply bg-black text-white border-black shadow-lg transform scale-105;
+    z-index: 20;
+    animation: pulse 0.3s ease-in-out;
+}
+
+.time-slot.available {
+    @apply bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 hover:border-black dark:hover:border-white hover:shadow-md;
+}
+
+.time-slot.unavailable {
+    @apply bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-400 cursor-not-allowed opacity-50;
+}
+
+.time-slot.booked {
+    @apply bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-500 cursor-not-allowed opacity-50;
+}
+
+/* Ensure time slots are clickable */
+.time-slot.available:active {
+    @apply transform scale-95;
+}
+
+/* Time slots grid improvements */
+#timeSlots {
+    @apply gap-2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+/* Form Styles */
+.form-input:focus {
+    @apply ring-2 ring-blue-500 border-blue-500;
+}
+
+.form-select:focus {
+    @apply ring-2 ring-blue-500 border-blue-500;
+}
+
+/* Loading States */
+.loading {
+    @apply opacity-50 cursor-not-allowed;
+}
+
+.loading-spinner {
+    @apply animate-spin rounded-full h-4 w-4 border-2 border-gray-300 border-t-blue-500;
+}
+
+/* Success Animation */
+.success-checkmark {
+    animation: checkmark 0.5s ease-in-out;
+}
+
+@keyframes checkmark {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Calendar Container Styles */
+#calendar {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700;
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+#calendarGrid {
+    @apply gap-1;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-top: 1rem;
+}
+
+/* Calendar day number styling */
+.calendar-day {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Available day indicator */
+.calendar-day.available::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #10B981;
+    border-radius: 50%;
+    opacity: 1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.calendar-day.selected::after {
+    background-color: white;
+    opacity: 1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Pulse animation for selected elements */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Calendar Navigation */
+#prevMonth, #nextMonth {
+    @apply px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200;
+}
+
+#currentMonth {
+    @apply text-xl font-bold text-gray-800 dark:text-white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .calendar-day {
+        @apply p-1 text-sm;
+    }
+    
+    .time-slot {
+        @apply p-2 text-sm;
+    }
+    
+    #timeSlots {
+        @apply grid-cols-2;
+    }
+}
+
+/* Dark Mode Enhancements */
+.dark .calendar-day {
+    @apply text-gray-300;
+}
+
+.dark .calendar-day:hover {
+    @apply bg-gray-700;
+}
+
+.dark .time-slot:hover {
+    @apply bg-gray-700;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* Appointment Summary Styles */
+.appointment-summary {
+    @apply bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900 dark:to-indigo-900;
+}
+
+/* Modal Animation */
+.modal-enter {
+    animation: modalEnter 0.3s ease-out;
+}
+
+@keyframes modalEnter {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Form Validation Styles */
+.form-input.error {
+    @apply border-red-500 ring-red-500;
+}
+
+.error-message {
+    @apply text-red-500 text-sm mt-1;
+}
+
+/* Barber Schedule Indicators */
+.barber-available {
+    @apply text-green-600 dark:text-green-400;
+}
+
+.barber-unavailable {
+    @apply text-red-600 dark:text-red-400;
+}
+
+.barber-partial {
+    @apply text-yellow-600 dark:text-yellow-400;
+}
+
+/* Service Price Display */
+.service-price {
+    @apply text-sm text-gray-500 dark:text-gray-400;
+}
+
+/* Time Slot Grid Responsive */
+@media (max-width: 640px) {
+    #timeSlots {
+        @apply grid-cols-1;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    #timeSlots {
+        @apply grid-cols-3;
+    }
+}
+
+/* Calendar Navigation */
+.calendar-nav-btn {
+    @apply px-3 py-1 rounded-md transition-colors duration-200;
+}
+
+.calendar-nav-btn:hover {
+    @apply bg-gray-200 dark:bg-gray-600;
+}
+
+.calendar-nav-btn:disabled {
+    @apply opacity-50 cursor-not-allowed;
+}
+
+/* Form Section Transitions */
+.form-section {
+    @apply transition-all duration-300 ease-in-out;
+}
+
+.form-section.hidden {
+    @apply opacity-0 max-h-0 overflow-hidden;
+}
+
+.form-section.visible {
+    @apply opacity-100 max-h-screen;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50;
+}
+
+.loading-content {
+    @apply bg-white dark:bg-gray-800 rounded-lg p-6 text-center;
+}
+
+/* Success State */
+.success-state {
+    @apply bg-green-50 dark:bg-green-900 border-green-200 dark:border-green-700;
+}
+
+/* Error State */
+.error-state {
+    @apply bg-red-50 dark:bg-red-900 border-red-200 dark:border-red-700;
+}
+
+/* Warning State */
+.warning-state {
+    @apply bg-yellow-50 dark:bg-yellow-900 border-yellow-200 dark:border-yellow-700;
+} 

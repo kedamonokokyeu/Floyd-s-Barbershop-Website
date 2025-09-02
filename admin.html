@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Floyd's Barbershop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="booking-styles.css">
+    <link rel="icon" href="favicon/favicon.ico" />
+</head>
+<body class="bg-black">
+    <div id="__next">
+        <div class="background-wrapper">
+            <!-- Header -->
+            <header class="bg-black text-white py-4">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="flex justify-between items-center">
+                        <a href="FloydsBarbershop.html" class="text-2xl font-bold">FLOYD'S ADMIN</a>
+                        <nav class="space-x-4">
+                            <a href="FloydsBarbershop.html" class="text-gray-300 hover:text-white transition duration-300">Home</a>
+                            <a href="booking.html" class="text-gray-300 hover:text-white transition duration-300">Booking</a>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Admin Section -->
+            <section class="py-12">
+                <div class="max-w-6xl mx-auto px-4">
+                    <h1 class="text-4xl font-bold text-center text-white mb-8">Admin Panel</h1>
+                    
+                    <!-- Admin Controls -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 mb-8">
+                        <h2 class="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Appointment Management</h2>
+                        
+                        <!-- Filters -->
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                            <div>
+                                <label for="dateFilter" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    Filter by Date
+                                </label>
+                                <input type="date" id="dateFilter" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                            </div>
+                            <div>
+                                <label for="barberFilter" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    Filter by Barber
+                                </label>
+                                <select id="barberFilter" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                    <option value="">All Barbers</option>
+                                    <option value="vy">Vy</option>
+                                    <option value="kevin">Kevin</option>
+                                    <option value="jordan">Jordan</option>
+                                    <option value="kathy">Kathy</option>
+                                    <option value="matt">Matt</option>
+                                    <option value="peter">Peter</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="statusFilter" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    Filter by Status
+                                </label>
+                                <select id="statusFilter" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                    <option value="">All Appointments</option>
+                                    <option value="upcoming">Upcoming</option>
+                                    <option value="past">Past</option>
+                                    <option value="today">Today</option>
+                                </select>
+                            </div>
+                            <div class="flex items-end">
+                                <button id="clearFilters" class="w-full bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600 transition duration-300">
+                                    Clear Filters
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Export Options -->
+                        <div class="flex flex-wrap gap-4 mb-6">
+                            <button id="exportCSV" class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition duration-300">
+                                Export to CSV
+                            </button>
+                            <button id="exportJSON" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300">
+                                Export to JSON
+                            </button>
+                            <button id="clearAllAppointments" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition duration-300">
+                                Clear All Appointments
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Appointments Table -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">Appointments</h3>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                <thead class="bg-gray-50 dark:bg-gray-700">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">ID</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Customer</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Barber</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Service</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Date & Time</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Price</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="appointmentsTableBody" class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                                    <!-- Appointments will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Statistics -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6">
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">Total Appointments</h3>
+                            <p id="totalAppointments" class="text-3xl font-bold text-blue-600">0</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6">
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">Today's Appointments</h3>
+                            <p id="todayAppointments" class="text-3xl font-bold text-green-600">0</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6">
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">Total Revenue</h3>
+                            <p id="totalRevenue" class="text-3xl font-bold text-purple-600">$0</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6">
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">Most Popular Service</h3>
+                            <p id="popularService" class="text-lg font-semibold text-orange-600">-</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="text-white py-8 border-t border-gray-700">
+                <div class="max-w-7xl mx-auto px-4 text-center">
+                    <p>&copy; 2024 Floyd's Barbershop. All rights reserved.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white dark:bg-gray-800 rounded-lg p-8 max-w-md mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Delete Appointment</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">Are you sure you want to delete this appointment? This action cannot be undone.</p>
+                <div class="flex space-x-4">
+                    <button id="confirmDelete" class="bg-red-600 text-white px-6 py-2 rounded-md hover:bg-red-700 transition duration-300">
+                        Delete
+                    </button>
+                    <button id="cancelDelete" class="bg-gray-500 text-white px-6 py-2 rounded-md hover:bg-gray-600 transition duration-300">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html> 
