@@ -12,7 +12,7 @@ class AdminPanel {
     }
 
     initializeEventListeners() {
-        // Filter event listeners
+        //event listeners for buttons
         document.getElementById('dateFilter').addEventListener('change', () => this.applyFilters());
         document.getElementById('barberFilter').addEventListener('change', () => this.applyFilters());
         document.getElementById('statusFilter').addEventListener('change', () => this.applyFilters());
@@ -32,7 +32,6 @@ class AdminPanel {
         const stored = localStorage.getItem('floydsAppointments');
         if (stored) {
             const appointments = JSON.parse(stored);
-            // Convert date strings back to Date objects
             return appointments.map(apt => ({
                 ...apt,
                 date: new Date(apt.date)
@@ -293,4 +292,5 @@ class AdminPanel {
 let adminPanel;
 document.addEventListener('DOMContentLoaded', () => {
     adminPanel = new AdminPanel();
+
 }); 
