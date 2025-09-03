@@ -490,12 +490,11 @@
           }
     </script>
     <script>
-      // Smooth transition function for booking links
+
       function smoothTransition(event) {
         event.preventDefault();
         const targetUrl = event.currentTarget.href;
         
-        // Add fade out effect
         document.body.style.transition = 'opacity 0.3s ease-out';
         document.body.style.opacity = '0';
         
@@ -505,7 +504,6 @@
         }, 300);
       }
       
-      // Add smooth transition to all booking links
       document.addEventListener('DOMContentLoaded', function() {
         const bookingLinks = document.querySelectorAll('a[href*="booking.html"]');
         bookingLinks.forEach(link => {
@@ -515,3 +513,4 @@
     </script>
   </body>
 </html>
+
